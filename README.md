@@ -2,8 +2,11 @@
 
 ### Top 3
 Luis: 1. Sports related topic, 2. Crime, 3. Forcasting Energy
+
 Vik: 1. Healthcare, 2. Sports, 3. Crime
+
 Ryan: 1. Healthcare, 2. Sports, 3. Crime
+
 Florin: 1. Face Recognition, 2 Handwriting Classification, 3. Job Market
 
 ### Pros and Cons
