@@ -22,17 +22,17 @@ Florin: 1. Face Recognition, 2 Handwriting Classification, 3. Job Market
 ### Brainstorming
 
 1. Sports related topic
-https://www.kaggle.com/c/nfl-playing-surface-analytics
+- https://www.kaggle.com/c/nfl-playing-surface-analytics
 
 2. Hand Writing classification topic
 
 3. Forcasting Energy
 
 4. Crime (Immage classification on gun control, crime prediction)
+- https://www.splunk.com/en_us/blog/machine-learning/predicting-and-preventing-crime-with-machine-learning-part-1.html
 
-https://www.splunk.com/en_us/blog/machine-learning/predicting-and-preventing-crime-with-machine-learning-part-1.html
 5. Healthcare(nutrition, X-ray or MRI scans)
-https://www.kaggle.com/c/osic-pulmonary-fibrosis-progression
+- https://www.kaggle.com/c/osic-pulmonary-fibrosis-progression
 
 6. Face Recognition
 
