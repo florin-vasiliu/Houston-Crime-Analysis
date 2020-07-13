@@ -14,9 +14,9 @@ Base Datasets:
 Feature analysis:
 
 - House rental/purchase prices (zillow.com)
-- Belair, West University note included in the dataset
+- Bellaire, West University not included in the dataset
 - Lighting
 - Distance from police stations
 - Period of the year (monthly)
 - Rainfall
-- Demografics (consus.gov)
+- Demographics (census.gov)
