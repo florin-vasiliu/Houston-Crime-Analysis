@@ -20,3 +20,6 @@ Feature analysis:
 - Period of the year (monthly)
 - Rainfall
 - Demographics (census.gov)
+
+Inspirational
+ - https://blog.dataiku.com/predicting-london-crime-rates-using-machine-learning
