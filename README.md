@@ -4,22 +4,28 @@ Topic selected:
 Crime
 
 ### Objective:
-Predict where police should be based on
+Predict number of ofenses based on the features
 
 Base Datasets: 
 - https://www.houstontx.gov/police/cs/crime-stats-archives.htm
 - https://www.neighborhoodscout.com/tx/houston/crime
-- https://geo.fcc.gov/api/census/#!/area/get_area
+- https://www.houstontx.gov/police/contact/substations.htm
 
-Feature analysis:
+## Features
 
-- House rental/purchase prices (zillow.com)
-- Bellaire, West University not included in the dataset
-- Lighting
-- Distance from police stations
-- Period of the year (monthly)
-- Rainfall
-- Demographics (census.gov)
+ - date/time 
+ - area (neighborhood) -R
+ - weather (precip/inch) -L
+ - police stations -R
+ - median income or house prices -V
+ - population density -F
+ - lighting -L
+ 
 
-Inspirational
+
+## Inspirational:
+
  - https://blog.dataiku.com/predicting-london-crime-rates-using-machine-learning
+ - https://ucr.fbi.gov/hate-crime/2011/resources/variables-affecting-crime
+ - https://www.neighborhoodscout.com/tx/houston
+ - https://towardsdatascience.com/how-to-generate-lat-and-long-coordinates-from-an-address-column-using-pandas-and-googlemaps-api-d66b2720248d
