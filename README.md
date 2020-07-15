@@ -37,3 +37,7 @@ Vik
  - https://towardsdatascience.com/exploring-clustering-and-mapping-torontos-crimes-96336efe490f#:~:text=K%2DMeans%20Clustering&text=It%20is%20the%20process%20of,assaults%20will%20be%20grouped%20together.&text=It%20enables%20us%20to%20group%20unlabeled%20data%20points
  - https://www.kaggle.com/akshayreddykotha/us-crime-rate-k-means-clustering
  - https://www.edureka.co/blog/implementing-kmeans-clustering-on-the-crime-dataset/
+ 
+ 
+ ## Cleaning Data
+All crime data on HPD's website was in initially in .xls format so all the files had to be downloaded and converted to csv format. Manually the 2018 had to have certain columns and image headers removed to prevent issues when trying to read the data in Python. From there we used Pandas to go through the CSVs, changing the column names to match for each of the years, and compile the dataset into one dataframe.
