@@ -42,3 +42,10 @@ Vik
  
  ## Cleaning Data
 All crime data on HPD's website was in initially in .xls format so all the files had to be downloaded and converted to csv format. Manually the 2018 had to have certain columns and image headers removed to prevent issues when trying to read the data in Python. From there we used Pandas to go through the CSVs, changing the column names to match for each of the years, and compile the dataset into one dataframe.
+
+
+## To Do's
+1. Pulish Tableau (crime+weather) an send divs (or link) - Florin&Luis
+2. Create flask app& HTML - Vik
+3. Push cleaned_data into AWS RDS (postgres) - Florin
+4. Finalize ML & Cleaning notebooks - Ryan
