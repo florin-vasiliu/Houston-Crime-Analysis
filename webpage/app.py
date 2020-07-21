@@ -8,17 +8,7 @@ from catboost import CatBoostClassifier
 # Create an instance of Flask
 app = Flask(__name__)
 
-# with open(f'crime_CatBoost.pkl', "rb") as f:
-#     model = pickle.load(f)
-
-# feature_names = model.get_booster().feature_names
-
-model = pickle.load( open( "crime_CatBoost", "rb" ) )
-
-# from_file = CatBoostClassifier()
-
-# model = from_file.load_model("crime_CatBoost", format="catboost")
-# model = catboost.load_model(crime_CatBoost.pkl)
+model = pickle.load(open( "crime_CatBoost", "rb" ))
 
 # Route to render index.html template using data from Mongo
 @app.route("/", methods=["GET", "POST"])
@@ -40,9 +30,16 @@ def home():
         print(data)
         output_message = model.predict(data)
         output_message = output_message[0]
-        print(output_message)
-    
-    return render_template("index.html", message = output_message)
 
+        classes = model.classes_
+        proba_array = model.predict_proba(data)
+        class_probs = zip(classes, proba_array)
+
+        prob_list = []
+        for offense, prob in class_probs:
+            prob_list.append(f'{offense} - Probability: {"%.2f"%(prob)}%')
+    
+    return render_template("index.html",  message = output_message)
+    
 if __name__ == "__main__":
     app.run()
