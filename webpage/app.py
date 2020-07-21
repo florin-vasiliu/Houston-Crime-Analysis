@@ -27,12 +27,12 @@ def home():
 
     if request.method == "POST":
         hour = int(request.form["hour"])
-        premise = int(request.form["premise"])
+        premise = request.form["premise"]
         tract = int(request.form["tract"])
         month = int(request.form["month"])
-        dayofweek = int(request.form["dayofweek"])
+        dayofweek = request.form["dayofweek"]
         temperature = int(request.form["temperature"])
-        weather = int(request.form["weather"])
+        weather = request.form["weather"]
 
 
         # data must be converted to df with matching feature names before predict
