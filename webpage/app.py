@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import pickle
 from catboost import CatBoostClassifier
+from bs4 import BeautifulSoup
 
 # Create an instance of Flask
 app = Flask(__name__)
@@ -39,7 +40,7 @@ def home():
         for offense, prob in class_probs:
             prob_list.append(f'{offense} - Probability: {"%.2f"%(prob)}%')
     
-    return render_template("index.html",  message = output_message)
+    return render_template("index2.html",  message = output_message)
     
 if __name__ == "__main__":
     app.run()
