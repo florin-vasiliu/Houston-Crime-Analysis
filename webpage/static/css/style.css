@@ -1,0 +1,17 @@
+#home_title {
+    font-size: 60pt;
+}
+
+h1 {
+    font-size: 36pt;
+}
+
+.jumbotron{
+    margin-top: 32px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+};
+
+ul {
+    list-style-type: none;
+   }
