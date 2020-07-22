@@ -40,7 +40,7 @@ def home():
         for offense, prob in class_probs:
             prob_list.append(f'{offense} - Probability: {"%.2f"%(prob)}%')
     
-    return render_template("index2.html",  message = output_message)
+    return render_template("index.html",  message = output_message)
     
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
