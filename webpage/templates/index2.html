@@ -17,10 +17,10 @@
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="navbar-nav">
-              <a class="nav-item nav-link active" href="index.html">Home</a>
-              <a class="nav-item nav-link" href="historical_analysis.html">Historical Analysis</a>
-              <a class="nav-item nav-link" href="machine_learning.html">Machine Learning</a>
-              <a class="nav-item nav-link" href="data.html">Data</a>
+              <a class="nav-item nav-link active" href="/">Home</a>
+              <a class="nav-item nav-link" href="/historical_analysis">Historical Analysis</a>
+              <a class="nav-item nav-link" href="/machine_learning">Machine Learning</a>
+              <a class="nav-item nav-link" href="/data">Data</a>
             </div>
          
       </nav>
@@ -33,19 +33,10 @@
             </div>
             <div class="row">
                 <div class="col-lg-6">
-                    <form method="POST" action="/" role="form", name="donationform">
+                    <form method="POST" action="#" role="form", name="donationform">
                         <div class="form-group">
                             <label>Hour (Midnight: 0 - 11PM: 23)</label>
                             <select id="selHour" class="form-control" name="hour" onload="PopulateDropDownList()"></select>
-                            <!-- <p class="small muted" id="selNum"></p>
-                            <script>
-                                let slider = document.getElementById("selHour")
-                                let number = document.getElementById("selNum")
-                                number.innerHTML = slider.value;
-                                slider.onchange = function(){
-                                    number.innerhtml = this.value;
-                                }
-                            </script> -->
                         </div>
                         <div class="form-group">
                             <label>Premise</label>
@@ -53,25 +44,25 @@
                         </div>
                         <div class="form-group">
                             <label>Census Tract</label>
-                            <input type="text" class="form-control" name="tract" placeholder="Tract">
+                            <input type="text" class="form-control" name="tract"  value="100000">
                         </div>
                         <div class="form-group">
-                            <label>Month (1-12)</label>
+                            <label>Month</label>
                             <select id="selMonth" class="form-control"  name="month" onload="PopulateDropDownList()"></select>
                         </div>
                         <div class="form-group">
-                            <label>Day of the Week (Monday-Friday)</label>
+                            <label>Day of the Week</label>
                             <select id="selDayofweek" class="form-control"  name="dayofweek" onload="PopulateDropDownList()"></select>
                         </div>
                         <div class="form-group">
-                            <label>Temperature</label>
+                            <label>Temperature (F)</label>
                             <select id="selTemperature" class="form-control"  name="temperature" onload="PopulateDropDownList()"></select>
                         </div>
                         <div class="form-group">
                             <label>Weather</label>
                             <select id="selWeather" class="form-control"  name="weather" onload="PopulateDropDownList()"></select>
                         </div>
-                        <input type="submit" value="submit" class="btn btn-default">
+                        <button type="button" class="btn btn-outline-secondary" onclick="getResults()">Submit</button>
                     </form>
                 </div>
 
@@ -84,10 +75,8 @@
             </div>
             <div class="row">
                 <div class="col-md-offset-2 col-md-8">
-                    <h1>{{ message }}</h1>
-                    <ul>{% for crime in prob_list %} 
-                        <li>{{crime}}</li>
-                     {% endfor %}</ul>
+                    <h1 id="message"></h1>
+                     <div id="crimeProb"></div>
                 </div>
             </div>
         </div>
@@ -102,7 +91,34 @@
         crossorigin=""></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
         <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script src="https://unpkg.com/d3-fetch"></script>
         <script src="static/js/dropdown.js"></script>
         <script src="static/js/map.js"></script>
     </body>
 </html>
+<script>
+    function getResults(){
+        d3.select('#message').text('')
+        d3.select('#crimeProb').text("")
+    d3.json('/api', {
+        method:"POST",
+        body: JSON.stringify({
+            'hour': document.getElementsByName('hour')[0].value,
+            'premise': document.getElementsByName('premise')[0].value,
+            'tract':document.getElementsByName('tract')[0].value,
+            'month':document.getElementsByName('month')[0].value,
+            'dayofweek':document.getElementsByName('dayofweek')[0].value,
+            'temperature':document.getElementsByName('temperature')[0].value,
+            'weather':document.getElementsByName('weather')[0].value
+        }),
+        headers:{
+            "Content-type":"application/json; charset=UTF-8"
+        }
+    }).then(data=>{
+        d3.select('#message').text(data.message)
+        let ul = d3.select('#crimeProb').append('ul')
+        data.prob_list.forEach(element => {
+            ul.append('li').text(element)
+        });
+    })}
+</script>
