@@ -35,8 +35,8 @@
                 <div class="col-lg-6">
                     <form method="POST" action="/" role="form", name="donationform">
                         <div class="form-group">
-                            <label>Hour (1-24)</label>
-                            <select id="selHour" class="form-control" onload="PopulateDropDownList()"></select>
+                            <label>Hour (Midnight: 0 - 11PM: 23)</label>
+                            <select id="selHour" class="form-control" name="hour" onload="PopulateDropDownList()"></select>
                             <!-- <p class="small muted" id="selNum"></p>
                             <script>
                                 let slider = document.getElementById("selHour")
@@ -49,7 +49,7 @@
                         </div>
                         <div class="form-group">
                             <label>Premise</label>
-                            <input type="text" class="form-control" name="premise" placeholder="Premise">
+                            <select id="selPremise" class="form-control"  name="premise" onload="PopulateDropDownList()"></select>
                         </div>
                         <div class="form-group">
                             <label>Census Tract</label>
@@ -57,19 +57,19 @@
                         </div>
                         <div class="form-group">
                             <label>Month (1-12)</label>
-                            <input type="text" class="form-control" name="month" placeholder="Month">
+                            <select id="selMonth" class="form-control"  name="month" onload="PopulateDropDownList()"></select>
                         </div>
                         <div class="form-group">
                             <label>Day of the Week (Monday-Friday)</label>
-                            <input type="text" class="form-control" name="dayofweek" placeholder="Day of Week">
+                            <select id="selDayofweek" class="form-control"  name="dayofweek" onload="PopulateDropDownList()"></select>
                         </div>
                         <div class="form-group">
                             <label>Temperature</label>
-                            <input type="text" class="form-control" name="temperature" placeholder="Temperature">
+                            <select id="selTemperature" class="form-control"  name="temperature" onload="PopulateDropDownList()"></select>
                         </div>
                         <div class="form-group">
                             <label>Weather</label>
-                            <input type="text" class="form-control" name="weather" placeholder="Weather">
+                            <select id="selWeather" class="form-control"  name="weather" onload="PopulateDropDownList()"></select>
                         </div>
                         <input type="submit" value="submit" class="btn btn-default">
                     </form>
