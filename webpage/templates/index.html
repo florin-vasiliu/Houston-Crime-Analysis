@@ -152,7 +152,7 @@
             d3.select('#message').text(data.message)
             let ul = d3.select('#crimeProb').append('ul')
             data.prob_list.forEach(element => {
-                ul.append('li').text(element)
+                ul.append('ul').text(element)
             });
         })
     }
