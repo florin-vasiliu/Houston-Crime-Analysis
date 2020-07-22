@@ -42,7 +42,7 @@ def api():
 
         prob_list=[]
         for offense, prob in class_probs:
-            prob_list.append(f'{offense} - Probability: {"%.2f"%(prob)}%')
+            prob_list.append(f'{offense} - Probability: {"%.2f"%(prob)*100}%')
 
         print({"message":output_message, "prob_list": prob_list})
         return jsonify({"message":output_message, "prob_list": prob_list})
