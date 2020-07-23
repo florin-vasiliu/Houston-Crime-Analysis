@@ -5,6 +5,7 @@ import numpy as np
 import pickle
 from catboost import CatBoostClassifier
 from bs4 import BeautifulSoup
+import query_cloud_db
 
 # Create an instance of Flask
 app = Flask(__name__)
@@ -58,6 +59,21 @@ def machine_learning():
 @app.route('/data', methods=["GET"])
 def data():
     return render_template("data.html")
+
+@app.route("/query/<dateStart>/<dateStop>", methods=["GET","POST"])
+def query_Start_Stop(dateStart, dateStop):
+     #returns data of all stations
+    dateStart = dateStart.lstrip("<").rstrip(">")
+    print("dateStart=",dateStart)
+    dateStop = dateStop.lstrip("<").rstrip(">")
+    print("dateStop=",dateStop)
+    x = query_cloud_db.queryDB(dateStart, dateStop)
+    print(x)
+    return x
+
+@app.route("/popup", methods=["GET"])
+def popup():    
+    return render_template("popup_table.html")
     
 if __name__ == "__main__":
     app.run(debug=True)

@@ -47,6 +47,22 @@
                     <p><a href="https://raw.githubusercontent.com/florin-vasiliu/FinalProject/master/machine_learning/mach_learn_df.csv">Clean Machine Learning Dataset (.csv)</a></p>
 
                     <hr>
+                    <h2>Query database (limited to 1,000 rows)</h2>
+                    <form method="POST" action="/" role="form" , name="donationform">
+                        <div class="row">
+                            <div class="form-group col-2">
+                                <label>Date from:</label>
+                                <input id="selDateFrom" class="form-control" placeholder="2019-01-26"></select>
+                            </div>
+                            <div class="form-group col-2">
+                                <label>Date to:</label>
+                                <input id="selDateTo" class="form-control" placeholder="2019-03-01"></select>
+                                    
+                            </div>
+                            <button type="button" class="btn btn-outline-secondary" style="height: 70%; position: relative; top:30px" onclick="getQueryResults()">Query AWS Database</button>
+                        </div>
+
+                    </form>
                     <div class="table-responsive">
                         <table class="table table-striped table-borderless table-sm">
 
@@ -63,7 +79,30 @@
             </div>
         </div>
     </div>
-
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://unpkg.com/d3-fetch"></script>
+    <script>
+        function getQueryResults() {
+            dateStart = d3.select('#selDateFrom').text('')
+            dateStop = d3.select('#selDateTo').text("")
+            // dateStart = '2019-01-26'
+            // dateStop = '2019-03-01'
+            console.log("dateStart1 ",dateStart)
+            d3.json(`/query/<${dateStart}>/<${dateStop}>`)
+                .then(function(data){
+                    console.log(data)
+                    window.open('/popup')
+                })
+                .catch(function(error){
+                    console.log("The file was just created", error)
+                    window.open('/popup')
+                })
+                
+                
+            
+            
+        }
+    </script>
 </body>
 
 <footer> 
