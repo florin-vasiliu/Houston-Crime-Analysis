@@ -40,33 +40,176 @@
                 <div class="jumbotron">
                     <h1 class="title">Data</h1>
                     <p>All of the crime data has been compiled from the Houston Police Department website. The links
-                        below will take you the website to see the raw data or let you download the clean dataset used for our machine
-                        learning models.</p>
+                        below will take you the website to see the raw data or you can download the clean dataset used
+                        for our machine learning models. The clean data set time period ranges from January 2018 to May 2020. Below is a snippet of the clean data set.</p>
                     <p><a href="https://www.houstontx.gov/police/cs/Monthly_Crime_Data_by_Street_and_Police_Beat.htm">Houston
                             Police Department</a></p>
-                    <p><a href="https://dream-team-final-project.s3.us-east-2.amazonaws.com/mach_learn_df.csv">Clean Machine Learning Dataset (.csv)</a></p>
+                    <p><a href="https://dream-team-final-project.s3.us-east-2.amazonaws.com/mach_learn_df.csv">Clean
+                            Machine Learning Dataset (.csv)</a></p>
 
                     <hr>
                     <div class="table-responsive">
                         <table class="table table-striped table-borderless table-sm">
-
-
+                            <thead>
+                                <tr style="text-align: center;">
+                                    <th>Index</th>
+                                    <th>Hour</th>
+                                    <th>Offense_Type</th>
+                                    <th>Premise</th>
+                                    <th>City</th>
+                                    <th>Tract</th>
+                                    <th>Month</th>
+                                    <th>Day_of_Week</th>
+                                    <th>Temperature</th>
+                                    <th>Weather</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>Burglary/Robbery</td>
+                                    <td>Residence or House</td>
+                                    <td>Houston</td>
+                                    <td>313100</td>
+                                    <td>1</td>
+                                    <td>Monday</td>
+                                    <td>46.56</td>
+                                    <td>Clouds</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>Burglary/Robbery</td>
+                                    <td>Apartment</td>
+                                    <td>Houston</td>
+                                    <td>321300</td>
+                                    <td>1</td>
+                                    <td>Monday</td>
+                                    <td>46.56</td>
+                                    <td>Clouds</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>0</td>
+                                    <td>Burglary/Robbery</td>
+                                    <td>Road, Street, or Sidewalk</td>
+                                    <td>Houston</td>
+                                    <td>432801</td>
+                                    <td>1</td>
+                                    <td>Monday</td>
+                                    <td>46.56</td>
+                                    <td>Clouds</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>0</td>
+                                    <td>Assault</td>
+                                    <td>Road, Street, or Sidewalk</td>
+                                    <td>Houston</td>
+                                    <td>330700</td>
+                                    <td>1</td>
+                                    <td>Monday</td>
+                                    <td>46.56</td>
+                                    <td>Clouds</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>0</td>
+                                    <td>Theft</td>
+                                    <td>Church, Synagogue, or Temple Parking Lot</td>
+                                    <td>Houston</td>
+                                    <td>312800</td>
+                                    <td>1</td>
+                                    <td>Monday</td>
+                                    <td>46.56</td>
+                                    <td>Clouds</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>0</td>
+                                    <td>Theft</td>
+                                    <td>Church, Synagogue, or Temple Parking Lot</td>
+                                    <td>Houston</td>
+                                    <td>334100</td>
+                                    <td>1</td>
+                                    <td>Monday</td>
+                                    <td>46.56</td>
+                                    <td>Clouds</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>0</td>
+                                    <td>Murder/Manslaughter</td>
+                                    <td>Road, Street, or Sidewalk</td>
+                                    <td>Houston</td>
+                                    <td>421201</td>
+                                    <td>1</td>
+                                    <td>Monday</td>
+                                    <td>46.56</td>
+                                    <td>Clouds</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>0</td>
+                                    <td>Assault</td>
+                                    <td>Residence or House</td>
+                                    <td>Houston</td>
+                                    <td>421700</td>
+                                    <td>1</td>
+                                    <td>Monday</td>
+                                    <td>46.56</td>
+                                    <td>Clouds</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>0</td>
+                                    <td>Assault</td>
+                                    <td>Residence or House</td>
+                                    <td>Houston</td>
+                                    <td>423201</td>
+                                    <td>1</td>
+                                    <td>Monday</td>
+                                    <td>46.56</td>
+                                    <td>Clouds</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>0</td>
+                                    <td>Theft</td>
+                                    <td>Service or Gas Station</td>
+                                    <td>Houston</td>
+                                    <td>220500</td>
+                                    <td>1</td>
+                                    <td>Monday</td>
+                                    <td>46.56</td>
+                                    <td>Clouds</td>
+                                </tr>
+                                <tr>
+                                    <td>11</td>
+                                    <td>0</td>
+                                    <td>Burglary/Robbery</td>
+                                    <td>Apartment Parking Lot</td>
+                                    <td>Houston</td>
+                                    <td>550301</td>
+                                    <td>1</td>
+                                    <td>Monday</td>
+                                    <td>46.56</td>
+                                    <td>Clouds</td>
+                                </tr>
+                            </tbody>
                         </table>
-                        ​
-
-                        </table>
-
-
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 
 </body>
 
-<footer> 
-    Created by Ryan Ashcraft, Vikash Bhakta, Luis Olguin, and Florin Vasiliu | <a href="https://github.com/florin-vasiliu/FinalProject">GitHub</a>
+<footer>
+    Created by Ryan Ashcraft, Vikash Bhakta, Luis Olguin, and Florin Vasiliu | <a
+        href="https://github.com/florin-vasiliu/FinalProject">GitHub</a>
 </footer>
+
 </html>

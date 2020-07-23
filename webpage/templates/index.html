@@ -149,8 +149,8 @@
                 "Content-type": "application/json; charset=UTF-8"
             }
         }).then(data => {
-            d3.select('#message').text(data.message)
-            let ul = d3.select('#crimeProb')
+            d3.select('#message').text(data.message).attr("style", "outline: solid black") 
+            let ul = d3.select('#crimeProb').attr("style", "outline: solid black")
             data.prob_list.forEach(element => {
                 ul.append('ul').text(element).style("padding-left",0).style("margin-bottom",0)
             });
