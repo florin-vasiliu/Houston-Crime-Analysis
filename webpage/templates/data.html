@@ -53,11 +53,11 @@
                         <div class="row">
                             <div class="form-group col-2">
                                 <label>Date from:</label>
-                                <input id="selDateFrom" class="form-control" placeholder="2019-01-26"></select>
+                                <input id="selDateFrom" class="form-control" placeholder="2019-01-26" ></select>
                             </div>
                             <div class="form-group col-2">
                                 <label>Date to:</label>
-                                <input id="selDateTo" class="form-control" placeholder="2019-03-01"></select>
+                                <input id="selDateTo" class="form-control" placeholder="2019-03-01" ></select>
                                     
                             </div>
                             <button type="button" class="btn btn-outline-secondary" style="height: 70%; position: relative; top:30px" onclick="getQueryResults()">Query AWS Database</button>
@@ -224,11 +224,18 @@
     <script src="https://unpkg.com/d3-fetch"></script>
     <script>
         function getQueryResults() {
-            dateStart = d3.select('#selDateFrom').text('')
-            dateStop = d3.select('#selDateTo').text("")
+            console.log(d3.select('#selDateFrom')[0][0].placeholder)
+            if (d3.select('#selDateFrom')[0][0].value=="") 
+                {dateStart = d3.select('#selDateFrom')[0][0].placeholder}
+            else
+                {dateStart = d3.select('#selDateFrom')[0][0].value}
+            if (d3.select('#selDateTo')[0][0].value=="") 
+                {dateStop = d3.select('#selDateTo')[0][0].placeholder}
+            else
+                {dateStop = d3.select('#selDateTo')[0][0].value}
             // dateStart = '2019-01-26'
             // dateStop = '2019-03-01'
-            console.log("dateStart1 ",dateStart)
+            console.log("dateStart",dateStart)
             d3.json(`/query/<${dateStart}>/<${dateStop}>`)
                 .then(function(data){
                     console.log(data)
