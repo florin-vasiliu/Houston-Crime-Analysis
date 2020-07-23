@@ -6,7 +6,7 @@ import pickle
 from catboost import CatBoostClassifier
 
 # Create an instance of Flask
-app = Flask(__name__)
+application = app = Flask(__name__)
 
 model = pickle.load(open( "static/ML_model/crime_CatBoost", "rb" ))
 
