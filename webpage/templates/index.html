@@ -97,7 +97,7 @@
             <div class="row">
                 <div class="col-sm">
                     <h3>The Most Likely Crime to Occur:</h3>
-                    <h3 id="message"></h3>
+                    <h4 id="message"></h4>
                 </div>
                 <div class="col-sm">
                     <h3>Crime Probabilities:</h3>
@@ -150,9 +150,9 @@
             }
         }).then(data => {
             d3.select('#message').text(data.message)
-            let ul = d3.select('#crimeProb').append('ul')
+            let ul = d3.select('#crimeProb')
             data.prob_list.forEach(element => {
-                ul.append('ul').text(element)
+                ul.append('ul').text(element).style("padding-left",0).style("margin-bottom",0)
             });
         })
     }
