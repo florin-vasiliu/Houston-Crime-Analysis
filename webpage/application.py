@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 import query_cloud_db
 
 # Create an instance of Flask
-app = Flask(__name__)
+application = app = Flask(__name__)
 
 model = pickle.load(open( "static/ML_model/crime_CatBoost", "rb" ))
 
