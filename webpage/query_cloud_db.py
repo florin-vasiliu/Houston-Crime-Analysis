@@ -1,7 +1,7 @@
 # Import Dependencies
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, Float, Date 
+from sqlalchemy import Column, Integer, String, Float, Date, and_
 import pandas as pd
 
 #establish connection parameters
@@ -61,7 +61,7 @@ session = Session(bind=engine)
 
 def queryDB(date_start, date_stop, limit=1000):
     stmt = session.query(Cleaned_data) \
-        .filter(Cleaned_data.Date >= date_start, Cleaned_data.Date <= date_stop).order_by(Cleaned_data.Date.asc()).limit(limit).statement
+        .filter(and_(Cleaned_data.Date >= date_start, Cleaned_data.Date <= date_stop)).order_by(Cleaned_data.Date.asc()).limit(limit).statement
     cleaned_data_df = pd.read_sql_query(stmt, session.bind)
     html_data = cleaned_data_df.to_html()
     text_file = open("templates/popup_table.html", "w")
