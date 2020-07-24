@@ -3,7 +3,7 @@
 Topic selected:
 Houston Crime
 
-Link: http://houstoncrimeanalysisquerytable-env.eba-sukmtz65.us-east-2.elasticbeanstalk.com/
+Link: http://houstoncrimeanalysisdreamteam-env.eba-2byipnup.us-east-2.elasticbeanstalk.com/
 
 ### Objective:
 Predict number of ofenses based on the features
